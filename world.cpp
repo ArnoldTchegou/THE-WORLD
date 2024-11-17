@@ -19,13 +19,13 @@ World::World(int h, int w, int param)
     // set active units
     for (int i = 0; i < param; i++)
     {
-        units[i] = 1;
+        units[i] = true;
     }
 
     // set inactive units
     for (int i = param; i < h * w; i++)
     {
-        units[i] = 0;
+        units[i] = false;
     }
 
     // use time based seed for default random generator

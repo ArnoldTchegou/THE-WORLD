@@ -19,15 +19,15 @@ World &Engine::compute_space_evolution()
         {
             int active = count_neighbour_state(i, j, "active");
             // int inactive = count_neighbour_state(w, i, j, "inactive");
-            if (w.getUnit_states()[i][j] == 0 && inactive_to_active.find(active) != inactive_to_active.end())
+            if (w.getUnit_states()[i][j] && inactive_to_active.find(active) != inactive_to_active.end())
             {
 
-                units[i * w.getHeight() + j] = 1;
+                units[i * w.getHeight() + j] = true;
                 // cout << active << "(" << i << " ," << j << ")" << endl;
             }
-            else if (w.getUnit_states()[i][j] == 1 && !(active_to_active.find(active) != active_to_active.end()))
+            else if (w.getUnit_states()[i][j] && !(active_to_active.find(active) != active_to_active.end()))
             {
-                units[i * w.getHeight() + j] = 0;
+                units[i * w.getHeight() + j] = false;
                 // cout << active << "(" << i << " ," << j << ")" << endl;
             }
             else
@@ -61,11 +61,11 @@ int Engine::count_neighbour_state(int i, int j, string state)
             {
                 if (state == "active")
                 {
-                    count += w.getUnit_states()[next_i][next_j] == 1 ? 1 : 0;
+                    count += w.getUnit_states()[next_i][next_j] ? 1 : 0;
                 }
                 else if (state == "inactive")
                 {
-                    count += w.getUnit_states()[next_i][next_j] == 0 ? 1 : 0;
+                    count += !w.getUnit_states()[next_i][next_j] ? 1 : 0;
                 }
             }
         }
