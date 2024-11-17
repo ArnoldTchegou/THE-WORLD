@@ -32,7 +32,7 @@ World::World(int h, int w, int param)
     unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 
     // shuffle 1D space to provide randomness
-    // I used to method to reduce program memory usage
+    // I used this method in order to reduce program memory usage for random state generation
     shuffle(units.begin(), units.end(), default_random_engine(seed));
 
     // convert 1D space into 2D space
