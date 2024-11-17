@@ -1,9 +1,7 @@
 #include "world.hpp"
-#include <cstdlib>
 #include <algorithm>
 #include <random>
 #include <chrono>
-#include <cstdlib>
 using namespace std;
 
 World::World(int h, int w, int param)
