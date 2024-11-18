@@ -12,4 +12,5 @@ int main()
     World w(8, 6, 20);
     Rendering Renderer{Engine(w)};
     Renderer.visualize_world();
+    // To create various engines with ability to customize compute statements, we can include constructors in the Engine class, each with different parameters
 }
